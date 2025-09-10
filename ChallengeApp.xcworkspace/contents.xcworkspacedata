@@ -2,6 +2,27 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:iOS/ChallengeApp/ChallengeApp.xcodeproj">
+      location = "group:ChallengeApp/ChallengeApp.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:Features"
+      name = "Features">
+      <FileRef
+         location = "group:Characters/Characters.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:UI"
+      name = "UI">
+      <FileRef
+         location = "group:DesignSystem/DesignSystem.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Services"
+      name = "Services">
+      <FileRef
+         location = "group:Networking/Networking.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>
