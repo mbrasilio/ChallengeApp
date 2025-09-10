@@ -23,10 +23,6 @@
 /* Begin PBXFileReference section */
 		19D2A2542E70E7F200CE2667 /* Characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D2A25E2E70E7F200CE2667 /* CharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharactersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19D2A2E82E70EF4400CE2667 /* DesignSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DesignSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19D2A2EA2E70EF4400CE2667 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19D2A2EC2E70EF6200CE2667 /* DesignSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DesignSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19D2A2FB2E70F52E00CE2667 /* DesignSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DesignSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -79,7 +75,6 @@
 			children = (
 				19D2A2562E70E7F200CE2667 /* Characters */,
 				19D2A2622E70E7F200CE2667 /* CharactersTests */,
-				19D2A2E72E70EF4400CE2667 /* Frameworks */,
 				19D2A2552E70E7F200CE2667 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,17 +86,6 @@
 				19D2A25E2E70E7F200CE2667 /* CharactersTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		19D2A2E72E70EF4400CE2667 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				19D2A2FB2E70F52E00CE2667 /* DesignSystem.framework */,
-				19D2A2EC2E70EF6200CE2667 /* DesignSystem.framework */,
-				19D2A2E82E70EF4400CE2667 /* DesignSystem.framework */,
-				19D2A2EA2E70EF4400CE2667 /* Networking.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -248,9 +248,6 @@
 			mainGroup = 1919504D2E70B02200D05596;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				1919508A2E70B20F00D05596 /* XCLocalSwiftPackageReference "../Packages/DesignSystem" */,
-				1919508B2E70B27B00D05596 /* XCLocalSwiftPackageReference "../Packages/Networking" */,
-				1919508C2E70B28700D05596 /* XCLocalSwiftPackageReference "../Packages/Features/Characters" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 191950572E70B02200D05596 /* Products */;
@@ -607,21 +604,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		1919508A2E70B20F00D05596 /* XCLocalSwiftPackageReference "../Packages/DesignSystem" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/DesignSystem;
-		};
-		1919508B2E70B27B00D05596 /* XCLocalSwiftPackageReference "../Packages/Networking" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/Networking;
-		};
-		1919508C2E70B28700D05596 /* XCLocalSwiftPackageReference "../Packages/Features/Characters" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Packages/Features/Characters;
-		};
-/* End XCLocalSwiftPackageReference section */
 	};
 	rootObject = 1919504E2E70B02200D05596 /* Project object */;
 }

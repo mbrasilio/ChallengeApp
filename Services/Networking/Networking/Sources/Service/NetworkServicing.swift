@@ -9,7 +9,7 @@ public protocol NetworkServicing {
 }
 
 public extension NetworkServicing {
-    public func fetch<T: Decodable>(
+    func fetch<T: Decodable>(
         api: EndpointApi,
         completion: @escaping (Result<T, CustomError>) -> Void
     ) {

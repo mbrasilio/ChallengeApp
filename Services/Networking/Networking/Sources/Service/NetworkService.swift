@@ -23,7 +23,7 @@ public final class NetworkService: NetworkServicing {
                 return completion(.failure(.transport(underlying: error)))
             }
             
-            if let httpError = CustomError.error(from: response as? HTTPURLResponse, data: data) {
+            if let httpError = CustomError.error(from: response as? HTTPURLResponse) {
                 return completion(.failure(httpError))
             }
             

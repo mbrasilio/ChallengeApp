@@ -1,0 +1,8 @@
+xcassets:
+  - inputs: DesignSystem/Resources/DSAssets.xcassets
+    outputs:
+      - templateName: swift5
+        output: DesignSystem/Generated/Assets+Gen.swift
+        params:
+          enumName: DSAsset
+          publicAccess: true

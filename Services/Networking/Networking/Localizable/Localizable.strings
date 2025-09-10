@@ -1,0 +1,26 @@
+// MARK: - CustomError
+// Description
+"CustomError.Description.invalidUrl" = "URL inválida.";
+"CustomError.Description.noData" = "Resposta vazia do servidor.";
+"CustomError.Description.encoding" = "Falha ao montar o corpo da requisição: %@.";
+"CustomError.Description.decoding" = "Falha ao interpretar a resposta: %@.";
+"CustomError.Description.transport" = "Falha de conexão: %@.";
+"CustomError.Description.cancelled" = "Operação cancelada.";
+"CustomError.Description.invalidHttpResponse" = "Falha ao interpretar o HTTP.";
+"CustomError.Description.notFound" = "Recurso não encontrado (404).";
+
+// DefaultMessage
+"CustomError.Default.Message.invalidRequisition" = "Requisição inválida (400).";
+"CustomError.Default.Message.notAuthorized" = "Não autorizado (401).";
+"CustomError.Default.Message.accessDenied" = "Acesso negado (403).";
+"CustomError.Default.Message.conflict" = "Conflito (409).";
+"CustomError.Default.Message.nonProsecutableEntity" = "Entidade não processável (422).";
+"CustomError.Default.Message.manyRequisitions" = "Muitas requisições (429).";
+"CustomError.Default.Message.internalError" = "Erro interno do servidor (500).";
+"CustomError.Default.Message.invalidGateway" = "Gateway inválido (502).";
+"CustomError.Default.Message.unavailableService" = "Serviço indisponível (503).";
+"CustomError.Default.Message.timeout" = "Tempo de resposta excedido (504).";
+"CustomError.Default.Message.redirection" = "Redirecionamento: %i.";
+"CustomError.Default.Message.client" = "Erro do cliente: %i.";
+"CustomError.Default.Message.server" = "Erro do servidor: %i.";
+"CustomError.Default.Message.http" = "Erro HTTP: %i.";

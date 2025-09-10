@@ -2,7 +2,7 @@ import Foundation
 
 extension URLRequest {
     static func with(endpointApi api: EndpointApi) throws -> Self {
-        guard var url = URL(string: api.url) else {
+        guard let url = URL(string: api.url) else {
             throw CustomError.invalidUrl
         }
         let defaultRequest = URLRequest(url: url)
