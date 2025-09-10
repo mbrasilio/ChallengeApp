@@ -1,9 +1,9 @@
 import Foundation
 
 public final class NetworkService: NetworkServicing {
-    private let session: URLSession
+    private let session: URLSessionProtocol
     
-    public init(session: URLSession = .shared) {
+    public init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
     
@@ -15,7 +15,7 @@ public final class NetworkService: NetworkServicing {
         guard let request = try? URLRequest.with(endpointApi: api) else {
             return completion(.failure(.invalidUrl))
         }
-        let task = session.dataTask(with: request) { (data, response, error) in
+        let task = session.dataTask(request: request) { (data, response, error) in
             if let urlError = error as? URLError {
                 if urlError.code == .cancelled { return completion(.failure(.cancelled)) }
                 return completion(.failure(.transport(underlying: urlError)))
