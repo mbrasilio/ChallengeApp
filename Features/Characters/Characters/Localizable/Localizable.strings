@@ -5,8 +5,8 @@
 "Details.informations" = "Informações";
 "Details.stats" = "Atributos";
 "Details.experience" = "Experiência";
-"Details.experienceValue" = "%i xp";
+"Details.experienceValue" = "%@ xp";
 "Details.height" = "Altura";
-"Details.heightValue" = "%i m";
+"Details.heightValue" = "%@ m";
 "Details.weight" = "Peso";
-"Details.weightValue" = "%i kg";
+"Details.weightValue" = "%@ kg";

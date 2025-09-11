@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19D2A2F42E70F3F700CE2667 /* Characters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D2A2F32E70F3F700CE2667 /* Characters.framework */; };
-		19D2A2F92E70F3FD00CE2667 /* DesignSystem.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19D2A2F72E70F3FD00CE2667 /* DesignSystem.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		19700F512E737C3D00271A67 /* Characters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D2A2F32E70F3F700CE2667 /* Characters.framework */; };
+		19700F522E737C3D00271A67 /* Characters.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19D2A2F32E70F3F700CE2667 /* Characters.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				19D2A2F92E70F3FD00CE2667 /* DesignSystem.framework in Embed Frameworks */,
+				19700F522E737C3D00271A67 /* Characters.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19D2A2F42E70F3F700CE2667 /* Characters.framework in Frameworks */,
+				19700F512E737C3D00271A67 /* Characters.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

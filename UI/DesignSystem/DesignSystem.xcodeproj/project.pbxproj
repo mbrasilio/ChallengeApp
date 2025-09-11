@@ -106,6 +106,7 @@
 			buildConfigurationList = 19D2A21D2E70E79000CE2667 /* Build configuration list for PBXNativeTarget "DesignSystem" */;
 			buildPhases = (
 				19D2A2052E70E78F00CE2667 /* Headers */,
+				19700F4E2E7374E600271A67 /* ShellScript */,
 				19D2A2062E70E78F00CE2667 /* Sources */,
 				19D2A2072E70E78F00CE2667 /* Frameworks */,
 				19D2A2082E70E78F00CE2667 /* Resources */,
@@ -201,6 +202,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19700F4E2E7374E600271A67 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if command -v swiftgen >/dev/null; then\n  swiftgen config run --config \"$SRCROOT/UI/DesignSystem/swiftgen.yml\"\nelse\n  echo \"⚠️ SwiftGen não encontrado\"\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		19D2A2062E70E78F00CE2667 /* Sources */ = {

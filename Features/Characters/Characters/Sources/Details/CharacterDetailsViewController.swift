@@ -12,7 +12,7 @@ final class CharacterDetailsViewController: UIViewController {
     
     // MARK: Layout Attributes
     private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.backgroundColor = .systemBackground
         tableView.separatorStyle = .none
         tableView.contentInsetAdjustmentBehavior = .always
@@ -149,6 +149,6 @@ extension CharacterDetailsViewController: CharacterDetailsDisplaying {
             details.attributes.map { .stat(key: $0.stat.name, value: $0.base) },
             toSection: .stats)
         
-        dataSource.apply(snap, animatingDifferences: true)
+        dataSource.applySnapshotUsingReloadData(snap)
     }
 }

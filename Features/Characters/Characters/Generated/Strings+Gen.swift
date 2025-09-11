@@ -14,15 +14,15 @@ public enum Strings {
   public enum Details {
     /// Experiência
     public static let experience = Strings.tr("Localizable", "Details.experience")
-    /// %i xp
-    public static func experienceValue(_ p1: Int) -> String {
-      return Strings.tr("Localizable", "Details.experienceValue", p1)
+    /// %@ xp
+    public static func experienceValue(_ p1: Any) -> String {
+      return Strings.tr("Localizable", "Details.experienceValue", String(describing: p1))
     }
     /// Altura
     public static let height = Strings.tr("Localizable", "Details.height")
-    /// %i m
-    public static func heightValue(_ p1: Int) -> String {
-      return Strings.tr("Localizable", "Details.heightValue", p1)
+    /// %@ m
+    public static func heightValue(_ p1: Any) -> String {
+      return Strings.tr("Localizable", "Details.heightValue", String(describing: p1))
     }
     /// Informações
     public static let informations = Strings.tr("Localizable", "Details.informations")
@@ -30,9 +30,9 @@ public enum Strings {
     public static let stats = Strings.tr("Localizable", "Details.stats")
     /// Peso
     public static let weight = Strings.tr("Localizable", "Details.weight")
-    /// %i kg
-    public static func weightValue(_ p1: Int) -> String {
-      return Strings.tr("Localizable", "Details.weightValue", p1)
+    /// %@ kg
+    public static func weightValue(_ p1: Any) -> String {
+      return Strings.tr("Localizable", "Details.weightValue", String(describing: p1))
     }
   }
 
