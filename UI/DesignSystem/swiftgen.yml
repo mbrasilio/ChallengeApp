@@ -6,3 +6,12 @@ xcassets:
         params:
           enumName: DSAsset
           publicAccess: true
+
+strings:
+  - inputs: DesignSystem/Localizable/Localizable.strings
+    outputs:
+      - templateName: structured-swift5
+        output: DesignSystem/Generated/Strings+Gen.swift
+        params:
+          enumName: Strings
+          publicAccess: true

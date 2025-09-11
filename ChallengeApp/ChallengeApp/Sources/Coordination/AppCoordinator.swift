@@ -1,16 +1,24 @@
 import UIKit
+import Characters
+
+protocol AppCoordinating {
+    func start()
+}
 
 final class AppCoordinator {
-    private let nav: UINavigationController
+    private let window: UIWindow
+    private let navigationController: UINavigationController
 
-    init(nav: UINavigationController) {
-        self.nav = nav
+    init(
+        window: UIWindow,
+        navigationController: UINavigationController = UINavigationController()
+    ) {
+        self.window = window
+        self.navigationController = navigationController
     }
 
     func start() {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .systemBackground
-        vc.title = "Home"
-        nav.setViewControllers([vc], animated: false)
+        let viewController = CharactersListFactory.make()
+        navigationController.setViewControllers([viewController], animated: false)
     }
 }

@@ -8,7 +8,7 @@ public final class NetworkService: NetworkServicing {
     }
     
     public func fetch<T: Decodable>(
-        api: EndpointApi,
+        api: EndpointApiProtocol,
         decoder: JSONDecoder,
         completion: @escaping (Result<T, CustomError>) -> Void
     ) {

@@ -2,7 +2,7 @@ import Foundation
 
 public protocol NetworkServicing {
     func fetch<T: Decodable>(
-        api: EndpointApi,
+        api: EndpointApiProtocol,
         decoder: JSONDecoder,
         completion: @escaping (Result<T, CustomError>) -> Void
     )
@@ -10,7 +10,7 @@ public protocol NetworkServicing {
 
 public extension NetworkServicing {
     func fetch<T: Decodable>(
-        api: EndpointApi,
+        api: EndpointApiProtocol,
         completion: @escaping (Result<T, CustomError>) -> Void
     ) {
         fetch(
