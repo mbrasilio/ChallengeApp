@@ -13,7 +13,7 @@ public enum CustomError: Error, LocalizedError {
     case http(status: Int)
     case notFound
 
-    public var errorDescription: String? {
+    public var errorDescription: String {
         let description: String
         switch self {
         case .invalidUrl:               

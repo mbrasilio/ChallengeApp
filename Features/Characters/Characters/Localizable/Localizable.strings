@@ -10,3 +10,7 @@
 "Details.heightValue" = "%@ m";
 "Details.weight" = "Peso";
 "Details.weightValue" = "%@ kg";
+
+// MARK: Error
+"Error.title" = "Ops! Ocorreu um erro";
+"Error.buttonTitle" = "Ok";

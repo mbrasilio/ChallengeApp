@@ -13,4 +13,19 @@ extension UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.tintColor = .label
     }
+    
+    public func showErrorAlert(
+        title: String,
+        message: String,
+        buttonTitle: String ,
+        completion: (() -> Void)? = nil
+    ) {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default) { _ in
+            completion?()
+        })
+        present(alert, animated: true, completion: nil)
+    }
 }

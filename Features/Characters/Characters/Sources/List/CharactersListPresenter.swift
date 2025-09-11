@@ -5,6 +5,7 @@ protocol CharactersListPresenting: AnyObject {
     func presentNextCharacters(_ list: [CharactersListItem])
     func presentCanLoadMore(_ canLoadMore: Bool)
     func presentCharacterDetail(title: String, from url: String)
+    func presentError(message: String)
 }
 
 final class CharactersListPresenter: CharactersListPresenting {
@@ -45,5 +46,9 @@ final class CharactersListPresenter: CharactersListPresenting {
     
     func presentCharacterDetail(title: String, from url: String) {
         router.openCharacterDetail(title: title, from: url)
+    }
+    
+    func presentError(message: String) {
+        viewController?.displayError(message: message)
     }
 }

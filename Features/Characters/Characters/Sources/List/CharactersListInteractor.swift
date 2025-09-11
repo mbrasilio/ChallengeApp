@@ -37,8 +37,7 @@ extension CharactersListInteractor: CharactersListInteracting {
                 presenter.presentInitialList(charactersListItem)
                 presenter.presentCanLoadMore(couldLoadMoreItens(total: characters.count))
             case .failure(let error):
-                // TODO: - Adicionar tela de erro
-                break
+                presenter.presentError(message: error.errorDescription)
             }
         }
     }
@@ -55,8 +54,7 @@ extension CharactersListInteractor: CharactersListInteracting {
                 presenter.presentNextCharacters(characters.results)
                 presenter.presentCanLoadMore(couldLoadMoreItens(total: characters.count))
             case .failure(let error):
-                // TODO: - Adicionar tela de erro
-                break
+                presenter.presentError(message: error.errorDescription)
             }
         }
     }

@@ -7,6 +7,7 @@ protocol CharactersListDisplaying: AnyObject {
     func displayLoading()
     func displayFinishedLoading()
     func displayCanLoadMore(_ canLoadMore: Bool)
+    func displayError(message: String)
 }
 
 final class CharactersListViewController: UIViewController {
@@ -165,5 +166,13 @@ extension CharactersListViewController: CharactersListDisplaying {
 
     func displayCanLoadMore(_ canLoadMore: Bool) {
         loadMoreFooter.setState(canLoadMore ? .ready : .end)
+    }
+    
+    func displayError(message: String) {
+        showErrorAlert(
+            title: Strings.Error.title,
+            message: message,
+            buttonTitle: Strings.Error.buttonTitle
+        )
     }
 }

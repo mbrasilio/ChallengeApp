@@ -36,6 +36,13 @@ public enum Strings {
     }
   }
 
+  public enum Error {
+    /// Ok
+    public static let buttonTitle = Strings.tr("Localizable", "Error.buttonTitle")
+    /// Ops! Ocorreu um erro
+    public static let title = Strings.tr("Localizable", "Error.title")
+  }
+
   public enum List {
     /// Pokédex
     public static let title = Strings.tr("Localizable", "List.title")

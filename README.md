@@ -121,6 +121,14 @@ cd ChallengeApp
 https://github.com/user-attachments/assets/18097d6e-4685-4fd4-8e9f-3844f0edead0
 
 ## Pontos de Melhoria Futuros
+### Testes unitários
+- Nem todos os testes unitários foram feitos por falta de tempo, mas entendo e reconheço a importância de adicioná-los futuramente para garantir o funcionamento do código.
+
+### Tela de Erros
+- Criar uma tela padrão de erros, ao invés de usar alertas.
+- Melhor feedback para o usuário e opção de retry.
+- Pode ser padrão para o app, sendo adicionada ao módulo de DesignSystem.
+
 ### Injeção de Dependências
 - Centralizar configuração de dependências em um container único.
 - Desacoplar módulos através de protocolos, não de implementações.
