@@ -67,7 +67,7 @@ final class CharactersListViewController: UIViewController {
         updateFooterHeight()
     }
 
-    // MARK: - LayoutFunctions
+    // MARK: - LayoutFunction
     private func configureAppearance() {
         view.backgroundColor = .systemBackground
         title = "Pokédex"
@@ -102,21 +102,27 @@ final class CharactersListViewController: UIViewController {
         }
 
         tableView.tableFooterView = loadMoreFooter
-        updateFooterHeight()
     }
     
     private func updateFooterHeight() {
-        guard let footer = tableView.tableFooterView else { return }
         let targetWidth = tableView.bounds.width
-        let fittingSize = CGSize(width: targetWidth, height: UIView.layoutFittingCompressedSize.height)
+        guard let footer = tableView.tableFooterView, targetWidth > 0 else { return }
+        
+        if footer.bounds.width != targetWidth {
+            footer.bounds.size.width = targetWidth
+        }
+        footer.setNeedsLayout()
+        footer.layoutIfNeeded()
+        
         let size = footer.systemLayoutSizeFitting(
-            fittingSize,
+            CGSize(width: targetWidth, height: UIView.layoutFittingCompressedSize.height),
             withHorizontalFittingPriority: .required,
             verticalFittingPriority: .fittingSizeLevel
         )
-        if footer.frame.size.height != size.height {
+        
+        if footer.frame.height != size.height {
             footer.frame.size.height = size.height
-            tableView.tableFooterView = footer // reatribui pra aplicar
+            tableView.tableFooterView = footer
         }
     }
 }
