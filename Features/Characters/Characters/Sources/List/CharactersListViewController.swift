@@ -22,9 +22,7 @@ final class CharactersListViewController: UIViewController {
         tableView.rowHeight = 72
         tableView.estimatedRowHeight = 72
         tableView.register(DSCell.self, forCellReuseIdentifier: DSCell.reuseID)
-        tableView.refreshControl = refresh
         tableView.delegate = self
-        tableView.prefetchDataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -41,15 +39,6 @@ final class CharactersListViewController: UIViewController {
         }
     }()
     
-    private let refresh = UIRefreshControl()
-    
-    private lazy var footerSpinner: UIActivityIndicatorView = {
-        let indicatorView = UIActivityIndicatorView(style: .medium)
-        indicatorView.hidesWhenStopped = true
-        indicatorView.startAnimating()
-        return indicatorView
-    }()
-    
     private let loadMoreFooter = LoadMoreFooterView()
     
     // MARK: - Initializer
@@ -62,7 +51,7 @@ final class CharactersListViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +62,11 @@ final class CharactersListViewController: UIViewController {
         interactor.loadInitialCharacters()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateFooterHeight()
+    }
+
     // MARK: - LayoutFunctions
     private func configureAppearance() {
         view.backgroundColor = .systemBackground
@@ -82,8 +76,6 @@ final class CharactersListViewController: UIViewController {
     }
     
     private func configureTable() {
-        refresh.addTarget(self, action: #selector(onPullToRefresh), for: .valueChanged)
-
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -94,21 +86,10 @@ final class CharactersListViewController: UIViewController {
     }
 
     private func configureDataSource() {
+        tableView.dataSource = dataSource
         var snap = NSDiffableDataSourceSnapshot<Section, CharactersListDTO>()
         snap.appendSections([.main])
         dataSource.apply(snap, animatingDifferences: false)
-        tableView.dataSource = dataSource
-    }
-    
-    private func showFooterSpinner(_ show: Bool) {
-        tableView.tableFooterView = show ? footerSpinner : UIView(frame: .zero)
-        tableView.tableFooterView?.frame.size.height = show ? 56 : 0
-        if show { footerSpinner.startAnimating() } else { footerSpinner.stopAnimating() }
-    }
-    
-    @objc
-    func onPullToRefresh() {
-        interactor.loadNextCharacters()
     }
     
     private func configureFooter() {
@@ -120,7 +101,6 @@ final class CharactersListViewController: UIViewController {
             self?.updateFooterHeight()
         }
 
-        // aplica como tableFooterView
         tableView.tableFooterView = loadMoreFooter
         updateFooterHeight()
     }
@@ -136,65 +116,43 @@ final class CharactersListViewController: UIViewController {
         )
         if footer.frame.size.height != size.height {
             footer.frame.size.height = size.height
-            tableView.tableFooterView = footer
+            tableView.tableFooterView = footer // reatribui pra aplicar
         }
     }
 }
 
-// MARK: - UITableViewDelegate & UITableViewDataSourcePrefetching
-extension CharactersListViewController: UITableViewDelegate, UITableViewDataSourcePrefetching {
-    func tableView(_ tableView: UITableView,
-                   willDisplay cell: UITableViewCell,
-                   forRowAt indexPath: IndexPath) {
-        guard !isLoading else { return }
-        
-        let total = dataSource.snapshot().numberOfItems
-        let isLastCell = indexPath.row == total - 1
-        if isLastCell {
-            interactor.loadNextCharacters()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        guard !isLoading else { return }
-//        if indexPaths.contains(where: { $0.row >= items.count - 5 }) {
-//            loadNextPage()
-//        }
+// MARK: - UITableViewDelegate
+extension CharactersListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: delegar seleção para interactor
     }
 }
 
 // MARK: - CharactersListDisplaying
 extension CharactersListViewController: CharactersListDisplaying {
     func displayInitialList(_ list: [CharactersListDTO]) {
-        var snap = dataSource.snapshot()
-        snap.deleteAllItems()
+        var snap = NSDiffableDataSourceSnapshot<Section, CharactersListDTO>()
         snap.appendSections([.main])
         snap.appendItems(list, toSection: .main)
         dataSource.apply(snap, animatingDifferences: false)
     }
     
     func displayNewItems(_ list: [CharactersListDTO]) {
-        stopLoading()
         var snap = dataSource.snapshot()
         if snap.sectionIdentifiers.isEmpty { snap.appendSections([.main]) }
         snap.appendItems(list, toSection: .main)
         dataSource.apply(snap, animatingDifferences: true)
     }
-    
+
     func displayLoading(isRefreshing: Bool) {
-        if isRefreshing {
-            if !refresh.isRefreshing { refresh.beginRefreshing() }
-            loadMoreFooter.setState(.ready)
-        } else {
-            loadMoreFooter.setState(.loading)
-        }
+        isLoading = true
+        loadMoreFooter.setState(.loading)
     }
-    
+
     func displayFinishedLoading() {
-        refresh.endRefreshing()
         isLoading = false
     }
-    
+
     func displayCanLoadMore(_ canLoadMore: Bool) {
         loadMoreFooter.setState(canLoadMore ? .ready : .end)
     }
