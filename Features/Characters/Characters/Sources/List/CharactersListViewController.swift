@@ -4,7 +4,7 @@ import DesignSystem
 protocol CharactersListDisplaying: AnyObject {
     func displayInitialList(_ list: [CharactersListDTO])
     func displayNewItems(_ list: [CharactersListDTO])
-    func displayLoading(isRefreshing: Bool)
+    func displayLoading()
     func displayFinishedLoading()
     func displayCanLoadMore(_ canLoadMore: Bool)
 }
@@ -94,8 +94,8 @@ final class CharactersListViewController: UIViewController {
     
     private func configureFooter() {
         loadMoreFooter.onTapLoadMore = { [weak self] in
-            guard let self, !self.isLoading else { return }
-            self.interactor.loadNextCharacters()
+            guard let self, !isLoading else { return }
+            interactor.loadNextCharacters()
         }
         loadMoreFooter.onNeedsLayoutUpdate = { [weak self] in
             self?.updateFooterHeight()
@@ -144,7 +144,7 @@ extension CharactersListViewController: CharactersListDisplaying {
         dataSource.apply(snap, animatingDifferences: true)
     }
 
-    func displayLoading(isRefreshing: Bool) {
+    func displayLoading() {
         isLoading = true
         loadMoreFooter.setState(.loading)
     }

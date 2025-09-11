@@ -1,16 +1,18 @@
 import Foundation
 
 struct CharactersList: Decodable {
+    let count: Int
     let paginationUrl: String
     let results: [CharactersListItem]
     
     enum CodingKeys: String, CodingKey {
-        case results
+        case results, count
         case paginationUrl = "next"
     }
     
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        count = try container.decode(Int.self, forKey: .count)
         paginationUrl = try container.decode(String.self, forKey: .paginationUrl)
         results = try container.decode([CharactersListItem].self, forKey: .results)
     }

@@ -1,6 +1,9 @@
 protocol CharactersListPresenting: AnyObject {
+    func presentLoading()
+    func stopLoading()
     func presentInitialList(_ list: [CharactersListItem])
-    func appendItems(_ list: [CharactersListItem])
+    func presentNextCharacters(_ list: [CharactersListItem])
+    func presentCanLoadMore(_ canLoadMore: Bool)
 }
 
 final class CharactersListPresenter: CharactersListPresenting {
@@ -11,13 +14,26 @@ final class CharactersListPresenter: CharactersListPresenting {
         self.router = router
     }
     
+    func presentLoading() {
+        viewController?.displayLoading()
+    }
+    
+    func stopLoading() {
+        viewController?.displayFinishedLoading()
+    }
+    
     func presentInitialList(_ list: [CharactersListItem]) {
         let dto = mapCharactersListDTO(from: list)
         viewController?.displayInitialList(dto)
     }
     
-    func appendItems(_ list: [CharactersListItem]) {
+    func presentNextCharacters(_ list: [CharactersListItem]) {
         let dto = mapCharactersListDTO(from: list)
+        viewController?.displayNewItems(dto)
+    }
+    
+    func presentCanLoadMore(_ canLoadMore: Bool) {
+        viewController?.displayCanLoadMore(canLoadMore)
     }
     
     private func mapCharactersListDTO(from list: [CharactersListItem]) -> [CharactersListDTO] {
