@@ -10,6 +10,8 @@ protocol CharactersListDisplaying: AnyObject {
 }
 
 final class CharactersListViewController: UIViewController {
+    typealias Localizable = Strings.Characters.List
+    
     // MARK: - Attributes
     private let interactor: CharactersListInteracting
     private var isLoading = false
@@ -70,7 +72,7 @@ final class CharactersListViewController: UIViewController {
     // MARK: - LayoutFunction
     private func configureAppearance() {
         view.backgroundColor = .systemBackground
-        title = "Pokédex"
+        title = Localizable.title
         navigationController?.navigationBar.prefersLargeTitles = true
         applyTransparentNavBar()
     }
