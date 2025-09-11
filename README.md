@@ -17,9 +17,7 @@ Mantém regras de UI, negócio e formatação desacopladas e testáveis.
 
 **Coordinator (AppCoordinator):** orquestra o fluxo global (setup inicial, navegação root, troca de features) mantendo ViewControllers “burros” quanto a navegação.
 
-Factory/Builder: cria cenas e monta wiring de dependências da feature (útil para escalar e facilitar testes/mocks).
-
-Injeção de dependências: feita no App (composition root) e dentro das Factories das features.
+**Factory:** cria cenas e monta wiring de dependências da feature (útil para escalar e facilitar testes/mocks).
 
 Multimódulo via múltiplos .xcodeproj: cada “área” vira um framework/target próprio (UI/DesignSystem, Services/Networking, Features/*).
 Permite compilar e evoluir partes do app de forma isolada, além de facilitar samples por feature no futuro.
@@ -122,27 +120,33 @@ cd ChallengeApp
 ## Exemplo do App Rodando
 https://github.com/user-attachments/assets/18097d6e-4685-4fd4-8e9f-3844f0edead0
 
-
-
 ## Pontos de Melhoria Futuros
 ### Injeção de Dependências
-- Adoção de um container de injeção de dependências. Esse container funcionaria como ponto central de configuração, responsável por registrar todas as implementações concretas e expô-las através de protocolos. Assim, cada módulo passaria a depender apenas de contratos públicos (protocolos), e não de implementações específicas.
+- Centralizar configuração de dependências em um container único.
+- Desacoplar módulos através de protocolos, não de implementações.
+- Facilitar testes, manutenção e evolução da arquitetura.
 
 ### Estrutura para CI/CD
-- Fundamental para automatizar o fluxo de desenvolvimento. Com isso, cada alteração enviada ao repositório poderia passar automaticamente por validações como: execução de testes unitários, análise estática de código (lint, formatação, métricas de cobertura) e build do projeto.
+- Configurar pipeline automatizada de build, testes e lint.
+- Garantir feedback rápido sobre falhas e regressões.
+- Aumentar a confiabilidade e a velocidade das entregas.
 
-### Organização do GitFlow.
-- Definir uma convenção clara de fluxo de branches e nomenclatura de commits facilita a colaboração entre múltiplos desenvolvedores.
-- Adoção de práticas como feature branches, release branches e hotfixes traz mais previsibilidade ao ciclo de releases.
-- Além disso, integrar revisões de pull requests dentro do fluxo padronizado ajuda a manter qualidade de código consistente, facilita rastreabilidade de mudanças e evita conflitos desnecessários.
+### Organização do GitFlow
+- Definir padrão de branches (feature, release, hotfix).
+- Padronizar commits e revisões via pull requests.
+- Melhorar colaboração, rastreabilidade e previsibilidade.
 
-### SwiftUI e SwiftConcurrency
-- Evoluir a interface para SwiftUI traria maior produtividade e simplicidade no desenvolvimento de telas, aproveitando a abordagem declarativa que reduz boilerplate de código e melhora a legibilidade.
-- Aliar SwiftUI ao uso de Swift Concurrency (async/await, Task, Actors) tornaria a arquitetura mais moderna, segura e escalável.
+### SwiftUI e Swift Concurrency
+- Adotar SwiftUI para construção de interfaces declarativas.
+- Usar Swift Concurrency (async/await, Task, Actors) em fluxos assíncronos.
+- Melhorar legibilidade, responsividade e segurança de concorrência.
 
 ### Analytics / Crashlytics
-- Integrar soluções como Firebase Analytics e Crashlytics permitiria coletar métricas de uso, rastrear falhas e monitorar a saúde do app em produção. 
+- Integrar ferramentas como Firebase Analytics e Crashlytics.
+- Coletar métricas de uso e relatórios de falhas em produção.
+- Guiar melhorias com dados reais e aumentar a estabilidade.
 
 ### SwiftLint
-- Adotar o SwiftLint para análise estática do código garante que o projeto siga padrões consistentes de estilo e boas práticas.
-- A padronização também contribui para onboarding mais rápido de novos membros na equipe.
+- Padronizar estilo e boas práticas de código com SwiftLint.
+- Reduzir divergências de formatação entre desenvolvedores.
+- Manter base limpa, legível e com fácil manutenção.
