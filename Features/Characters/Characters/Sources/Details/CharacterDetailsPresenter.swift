@@ -1,4 +1,5 @@
 protocol CharacterDetailsPresenting: AnyObject {
+    func presentDetails(_ details: CharacterDetailsDTO)
 }
 
 final class CharacterDetailsPresenter {
@@ -6,17 +7,13 @@ final class CharacterDetailsPresenter {
     weak var viewController: CharacterDetailsDisplaying?
 
     init(router: CharacterDetailsRouting) {
-        self.coordinator = coordinator
+        self.router = router
     }
 }
 
 // MARK: - CharacterDetailsPresenting
 extension CharacterDetailsPresenter: CharacterDetailsPresenting {
-    func displaySomething() {
-        viewController?.displaySomething()
-    }
-    
-    func didNextStep() {
-        coordinator.openSomething()
+    func presentDetails(_ details: CharacterDetailsDTO) {
+        viewController?.displayDetails(details)
     }
 }

@@ -1,0 +1,12 @@
+// MARK: CharactersList
+"List.title" = "Pokédex";
+
+// MARK: CharactersDetails
+"Details.informations" = "Informações";
+"Details.stats" = "Atributos";
+"Details.experience" = "Experiência";
+"Details.experienceValue" = "%i xp";
+"Details.height" = "Altura";
+"Details.heightValue" = "%i m";
+"Details.weight" = "Peso";
+"Details.weightValue" = "%i kg";

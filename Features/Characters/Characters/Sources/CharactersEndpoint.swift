@@ -29,4 +29,8 @@ struct CharactersEndpoint: EndpointApiProtocol {
     static func getNextCharacters(urlString url: String) -> Self {
         CharactersEndpoint(url: url)
     }
+    
+    static func getCharacterDetails(urlString url: String) -> Self {
+        CharactersEndpoint(url: url)
+    }
 }

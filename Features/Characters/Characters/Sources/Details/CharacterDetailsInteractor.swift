@@ -1,4 +1,5 @@
 protocol CharacterDetailsInteracting: AnyObject {
+    func loadDetails()
 }
 
 final class CharacterDetailsInteractor {
@@ -16,4 +17,16 @@ final class CharacterDetailsInteractor {
 
 // MARK: - CharacterDetailsInteracting
 extension CharacterDetailsInteractor: CharacterDetailsInteracting {
+    func loadDetails() {
+        service.fetchDetails { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let details):
+                presenter.presentDetails(details)
+            case .failure(let failure):
+                // TODO: - Adicionar chamada de erro
+                break
+            }
+        }
+    }
 }

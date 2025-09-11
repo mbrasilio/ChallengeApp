@@ -4,7 +4,7 @@ protocol CharactersListPresenting: AnyObject {
     func presentInitialList(_ list: [CharactersListItem])
     func presentNextCharacters(_ list: [CharactersListItem])
     func presentCanLoadMore(_ canLoadMore: Bool)
-    func presentCharacterDetail(with url: String)
+    func presentCharacterDetail(title: String, from url: String)
 }
 
 final class CharactersListPresenter: CharactersListPresenting {
@@ -43,7 +43,7 @@ final class CharactersListPresenter: CharactersListPresenting {
         }
     }
     
-    func presentCharacterDetail(with url: String) {
-        router.openCharacterDetail(with: url)
+    func presentCharacterDetail(title: String, from url: String) {
+        router.openCharacterDetail(title: title, from: url)
     }
 }

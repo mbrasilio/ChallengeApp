@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1907886F2E7370BC00BBDAA6 /* DesignSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1907886E2E7370BC00BBDAA6 /* DesignSystem.framework */; };
+		190788712E7370C000BBDAA6 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 190788702E7370C000BBDAA6 /* Networking.framework */; };
 		19D2A25F2E70E7F200CE2667 /* Characters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D2A2542E70E7F200CE2667 /* Characters.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +23,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1907886E2E7370BC00BBDAA6 /* DesignSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DesignSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		190788702E7370C000BBDAA6 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D2A2542E70E7F200CE2667 /* Characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D2A25E2E70E7F200CE2667 /* CharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharactersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -56,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				190788712E7370C000BBDAA6 /* Networking.framework in Frameworks */,
+				1907886F2E7370BC00BBDAA6 /* DesignSystem.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,11 +76,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1907886D2E7370BC00BBDAA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				190788702E7370C000BBDAA6 /* Networking.framework */,
+				1907886E2E7370BC00BBDAA6 /* DesignSystem.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		19D2A24A2E70E7F200CE2667 = {
 			isa = PBXGroup;
 			children = (
 				19D2A2562E70E7F200CE2667 /* Characters */,
 				19D2A2622E70E7F200CE2667 /* CharactersTests */,
+				1907886D2E7370BC00BBDAA6 /* Frameworks */,
 				19D2A2552E70E7F200CE2667 /* Products */,
 			);
 			sourceTree = "<group>";

@@ -11,11 +11,34 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Strings {
 
-  public enum Characters {
-    public enum List {
-      /// Pokédex
-      public static let title = Strings.tr("Localizable", "Characters.List.title")
+  public enum Details {
+    /// Experiência
+    public static let experience = Strings.tr("Localizable", "Details.experience")
+    /// %i xp
+    public static func experienceValue(_ p1: Int) -> String {
+      return Strings.tr("Localizable", "Details.experienceValue", p1)
     }
+    /// Altura
+    public static let height = Strings.tr("Localizable", "Details.height")
+    /// %i m
+    public static func heightValue(_ p1: Int) -> String {
+      return Strings.tr("Localizable", "Details.heightValue", p1)
+    }
+    /// Informações
+    public static let informations = Strings.tr("Localizable", "Details.informations")
+    /// Atributos
+    public static let stats = Strings.tr("Localizable", "Details.stats")
+    /// Peso
+    public static let weight = Strings.tr("Localizable", "Details.weight")
+    /// %i kg
+    public static func weightValue(_ p1: Int) -> String {
+      return Strings.tr("Localizable", "Details.weightValue", p1)
+    }
+  }
+
+  public enum List {
+    /// Pokédex
+    public static let title = Strings.tr("Localizable", "List.title")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

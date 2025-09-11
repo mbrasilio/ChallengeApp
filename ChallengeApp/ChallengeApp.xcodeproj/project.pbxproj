@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19D2A2F02E70F3EC00CE2667 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D2A2EF2E70F3EC00CE2667 /* Networking.framework */; };
 		19D2A2F42E70F3F700CE2667 /* Characters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D2A2F32E70F3F700CE2667 /* Characters.framework */; };
-		19D2A2F82E70F3FD00CE2667 /* DesignSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D2A2F72E70F3FD00CE2667 /* DesignSystem.framework */; };
 		19D2A2F92E70F3FD00CE2667 /* DesignSystem.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 19D2A2F72E70F3FD00CE2667 /* DesignSystem.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -89,8 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19D2A2F02E70F3EC00CE2667 /* Networking.framework in Frameworks */,
-				19D2A2F82E70F3FD00CE2667 /* DesignSystem.framework in Frameworks */,
 				19D2A2F42E70F3F700CE2667 /* Characters.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

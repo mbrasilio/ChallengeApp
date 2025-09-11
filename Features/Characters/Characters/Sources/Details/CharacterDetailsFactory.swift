@@ -1,15 +1,19 @@
 import UIKit
+import Networking
 
 enum CharacterDetailsFactory {
-    static func make() -> UIViewController {
-        let container = DependencyContainer()
-        let service = CharacterDetailsService(dependencies: container)
-        let coordinator = CharacterDetailsCoordinator(dependencies: container)
-        let presenter = CharacterDetailsPresenter(coordinator: coordinator, dependencies: container)
-        let interactor = CharacterDetailsInteractor(service: service, presenter: presenter, dependencies: container)
-        let viewController = CharacterDetailsViewController(interactor: interactor)
+    static func make(title: String, from url: String) -> UIViewController {
+        let networking = NetworkService()
+        let service = CharacterDetailsService(url: url, networking: networking)
+        let router = CharacterDetailsRouter()
+        let presenter = CharacterDetailsPresenter(router: router)
+        let interactor = CharacterDetailsInteractor(
+            service: service,
+            presenter: presenter
+        )
+        let viewController = CharacterDetailsViewController(interactor: interactor, title: title)
 
-        coordinator.viewController = viewController
+        router.viewController = viewController
         presenter.viewController = viewController
 
         return viewController

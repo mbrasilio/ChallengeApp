@@ -10,7 +10,7 @@ protocol CharactersListDisplaying: AnyObject {
 }
 
 final class CharactersListViewController: UIViewController {
-    typealias Localizable = Strings.Characters.List
+    typealias Localizable = Strings.List
     
     // MARK: - Attributes
     private let interactor: CharactersListInteracting
@@ -132,7 +132,9 @@ final class CharactersListViewController: UIViewController {
 // MARK: - UITableViewDelegate
 extension CharactersListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: delegar seleção para interactor
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        interactor.openCharacterDetails(id: item.id)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

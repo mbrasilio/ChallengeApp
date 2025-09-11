@@ -67,13 +67,17 @@ extension CharactersListInteractor: CharactersListInteracting {
     
     // MARK: Details
     func openCharacterDetails(id: UUID) {
-        guard let url = getDetailUrl(with: id) else {
+        guard let character = getCharacter(with: id) else {
             // Melhoria: exibir mensagem de erro
             return
         }
+        presenter.presentCharacterDetail(
+            title: character.name,
+            from: character.detailUrl
+        )
     }
     
-    private func getDetailUrl(with id: UUID) -> String? {
-        charactersListItem.first(where: { $0.id == id})?.detailUrl
+    private func getCharacter(with id: UUID) -> CharactersListItem? {
+        charactersListItem.first(where: { $0.id == id})
     }
 }
