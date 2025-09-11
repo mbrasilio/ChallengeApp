@@ -4,6 +4,7 @@ protocol CharactersListPresenting: AnyObject {
     func presentInitialList(_ list: [CharactersListItem])
     func presentNextCharacters(_ list: [CharactersListItem])
     func presentCanLoadMore(_ canLoadMore: Bool)
+    func presentCharacterDetail(with url: String)
 }
 
 final class CharactersListPresenter: CharactersListPresenting {
@@ -40,5 +41,9 @@ final class CharactersListPresenter: CharactersListPresenting {
         list.map { item in
             CharactersListDTO(id: item.id, name: item.name)
         }
+    }
+    
+    func presentCharacterDetail(with url: String) {
+        router.openCharacterDetail(with: url)
     }
 }

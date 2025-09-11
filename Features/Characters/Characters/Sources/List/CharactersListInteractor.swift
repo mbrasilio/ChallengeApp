@@ -3,6 +3,7 @@ import Networking
 protocol CharactersListInteracting: AnyObject {
     func loadInitialCharacters()
     func loadNextCharacters()
+    func openCharacterDetails(id: UUID)
 }
 
 final class CharactersListInteractor {
@@ -23,6 +24,7 @@ final class CharactersListInteractor {
 
 // MARK: - CharactersListInteracting
 extension CharactersListInteractor: CharactersListInteracting {
+    // MARK: Loading
     func loadInitialCharacters() {
         presenter.presentLoading()
         service.fetchInitialCharacters { [weak self] result in
@@ -61,5 +63,17 @@ extension CharactersListInteractor: CharactersListInteracting {
     
     private func couldLoadMoreItens(total: Int) -> Bool {
         total > charactersListItem.count
+    }
+    
+    // MARK: Details
+    func openCharacterDetails(id: UUID) {
+        guard let url = getDetailUrl(with: id) else {
+            // Melhoria: exibir mensagem de erro
+            return
+        }
+    }
+    
+    private func getDetailUrl(with id: UUID) -> String? {
+        charactersListItem.first(where: { $0.id == id})?.detailUrl
     }
 }
