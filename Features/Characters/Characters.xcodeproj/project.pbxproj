@@ -246,10 +246,13 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Features/Characters/swiftgen.yml",
+				"$(SRCROOT)/Features/Characters/Characters/Localizable/Localizable.strings",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(SRCROOT)/Features/Characters/Characters/Generated/Strings+Gen.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
