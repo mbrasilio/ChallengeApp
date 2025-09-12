@@ -123,6 +123,8 @@ https://github.com/user-attachments/assets/18097d6e-4685-4fd4-8e9f-3844f0edead0
 ## Pontos de Melhoria Futuros
 ### Testes unitários
 - Nem todos os testes unitários foram feitos por falta de tempo, mas entendo e reconheço a importância de adicioná-los futuramente para garantir o funcionamento do código.
+- Os testes seriam feitos em todas as classes Interactor, Presenter, Router. 
+- Além disso, também faria os testes da camada de Networking (apesar de não ter feito, deixei tudo pronto para testá-la, criando protocolos para URLSession e URLSessionDataTask, conseguindo criar um mock de URLSessionDataTask e conseguindo mockar também os resultados do URLSession).
 
 ### Tela de Erros
 - Criar uma tela padrão de erros, ao invés de usar alertas.

@@ -16,9 +16,19 @@ struct CharactersList: Decodable {
         paginationUrl = try container.decode(String.self, forKey: .paginationUrl)
         results = try container.decode([CharactersListItem].self, forKey: .results)
     }
+    
+    init(
+        count: Int,
+        paginationUrl: String,
+        results: [CharactersListItem]
+    ) {
+        self.count = count
+        self.paginationUrl = paginationUrl
+        self.results = results
+    }
 }
 
-struct CharactersListItem: Decodable {
+struct CharactersListItem: Decodable, Equatable {
     let id: UUID
     let name: String
     let detailUrl: String
@@ -33,5 +43,15 @@ struct CharactersListItem: Decodable {
         id = UUID()
         name = try container.decode(String.self, forKey: .name)
         detailUrl = try container.decode(String.self, forKey: .detailUrl)
+    }
+    
+    init(
+        id: UUID,
+        name: String,
+        detailUrl: String
+    ) {
+        self.id = id
+        self.name = name
+        self.detailUrl = detailUrl
     }
 }
